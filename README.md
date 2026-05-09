@@ -100,14 +100,14 @@ All per-sample fields take effect on **Replot** only.
 ### 🟣 Analysis
 | Tab | Content |
 |-----|---------|
-| OCV | V_eq (relaxation endpoints) vs SOD/SOC % + raw E vs SOD/SOC |
-| Overpotential curves | η(t) = E_pulse − E_eq,prev (mV); all pulses overlaid; turbo colour = V_eq |
-| Overpotential & Rtot | η (mV, left) and R_tot·m (Ω·g, right) vs SOD/SOC and V_eq. Gap-checked: excluded pulses do not create fake η spikes |
-| Relaxation curves | E(t) − E_eq (mV); all pulses overlaid; turbo colour = V_eq |
-| Relaxation ΔE | Total voltage recovery (E_eq − E_relax,start) vs SOD/SOC |
-| Relax kinetics| dV/d(log t) overlay; all pulses per sample; discharge top / charge bottom;
-| Relax kinetics / pulse | dV/d(log t) for selected Pulse #; discharge top / charge bottom;
-| Relax kinetics map | 2D heatmap
+| OCV | V_eq (relaxation endpoints) vs SOD/SOC % + raw E vs SOD/SOC|
+| Overpotential curves | η(t) = E_pulse − E_eq,prev (mV)|
+| Overpotential & Rtot | η (mV, left) and R_tot·m (Ω·g, right) vs SOD/SOC and V_eq|
+| Relaxation curves | E(t) − E_eq (mV); all pulses overlaid|
+| Relaxation ΔE | Total voltage recovery (E_eq − E_relax,start) vs SOD/SOC|
+| Relax kinetics| dV/d(log t) overlay|
+| Relax kinetics / pulse | dV/d(log t) for selected Pulse|
+| Relax kinetics map | 2D heatmap|
 
 ### 🟩 Weppner & Huggins (Conv.)
 | Tab | Content |
