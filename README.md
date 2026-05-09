@@ -112,7 +112,7 @@ All per-sample fields take effect on **Replot** only.
 ### 🟩 Weppner & Huggins (Conv.)
 | Tab | Content |
 |-----|---------|
-| All pulses (sqt) | ΔE vs √t; all pulses overlaid; turbo colour = V_eq |
+| All pulses (sqt) | ΔE vs √t; all pulses overlaid|
 | sqrt(t) fits | Single pulse (Pulse #); fit line and R² |
 | Slopes & dE/dx | \|dE/d√t\| vs V_eq (top) + \|dE/dx\| vs V_eq (bottom) |
 | D coefficient | D̃_conv vs V_eq and vs SOD/SOC % |
@@ -120,7 +120,7 @@ All per-sample fields take effect on **Replot** only.
 ### 🟥 Kang & Chueh (K&C)
 | Tab | Content |
 |-----|---------|
-| All xi pulses | E − E_eq vs ξ; all pulses overlaid; turbo colour = V_eq |
+| All xi pulses | E − E_eq vs ξ; all pulses overlaid|
 | xi fits | Single pulse (Pulse #); fit line and R² |
 | xi slopes | \|s_KC\| vs V_eq and vs SOD/SOC % |
 | D coefficient | D̃_KC vs V_eq and vs SOD/SOC % |
@@ -145,4 +145,3 @@ pulse exclusion guide, and D behaviour at the plateau.
 
 - Weppner, W. & Huggins, R. A. *J. Electrochem. Soc.* **124**, 1569–1578 (1977)
 - Kang, S. & Chueh, W. C. *J. Electrochem. Soc.* **168**, 120504 (2021)
-- Ge, K. et al. *ACS Energy Lett.* **8**, 2738–2745 (2023)
