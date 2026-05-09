@@ -71,8 +71,6 @@ All per-sample fields take effect on **Replot** only.
 ### Parameter bar
 
 > **All parameters take effect only when you click Replot.**
-> Adjust multiple parameters freely, then click once.
-> Exception: **Pulse #** and **Reverse pulses** update the three per-pulse tabs immediately (fast single-curve draws).
 
 | Parameter | Default | Description |
 |-----------|---------|-------------|
