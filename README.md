@@ -14,66 +14,13 @@ A multi-sample desktop application for analysing GITT electrochemical data. Impl
 | scipy | ≥ 1.9 |
 | matplotlib | ≥ 3.6 |
 
----
-
-## Installation
-
-```bash
-pip install -e .
-```
-
-### Linux (Ubuntu / Debian)
-```bash
-sudo apt-get install python3-tk
-pip install -e .
-```
-
-### macOS
-```bash
-brew install python-tk   # only if using Homebrew Python
-pip install -e .
-```
-
-### Windows
-tkinter ships with the standard python.org installer — just run `pip install -e .`
-
----
-
-## Running
-
-```bash
-python GITT_V2.py                           # open with no data
-python GITT_V2.py --data_dir /path/data    # pre-load a directory
-gitt --data_dir /path/data                  # if installed via setup.py
-```
-
----
 
 ## Input Files
 
 ### ✅ Recommended: EC-Lab single-file ASCII (.txt)
 
-Export one `.txt` file per sample from EC-Lab. Everything is in one place — time, voltage, current, capacity, and all sample metadata in the header. Just put the file in its own folder; the app reads and fills in everything automatically:
+Export one `.txt` file per sample from EC-Lab. Everything is in one place — time, voltage, current, capacity, and all sample metadata in the header. Just put the file in its own folder; the app reads and fills in everything automatically.
 
-- **Mass** pre-filled from header (`Mass of active material`)
-- **Tau** auto-detected from the current signal
-- **E range** auto-set from the data
-- **Qmax** read from `Battery capacity` in the header
-
-```
-EC-Lab ASCII FILE
-Nb header lines : 111
-...
-Mass of active material : 6,786 mg
-Battery capacity : 0,746 mA.h
-Electrode surface area : 1,130 cm²
-...
-time/s    Ewe/V    I/mA    Capacity/mA.h
-235937.1  1.9585   -0.0746  0.0000
-...
-```
-
-European comma decimals are handled automatically. Current in mA is converted to A internally.
 
 **Folder structure:**
 ```
@@ -203,18 +150,6 @@ Neither mode affects D_conv or D_kc values.
 |---|---|
 | **Export figures** | PNG (150 dpi) of all visible plots → `<data_dir>/results/` |
 | **Export curves** | Origin-ready CSV files, one X,Y pair per dataset → same folder |
-
----
-
-## Tips
-
-- **Single .txt file**: drop it in a folder, point the app at the folder. Mass, tau, E range all auto-filled from the header.
-- **Pulse range** limits the gradient overlay tabs — use to inspect a subset when all pulses together are too dense.
-- **Each sample** gets its own gradient colour (blue → sample 1, orange → sample 2, green → sample 3) matching the solid colours in D plots and OCV.
-- **KC xi_min / xi_max**: set xi_max < 15 to fit only the linear bulk relaxation. D_kc updates immediately.
-- **Sigma-clip** (e.g. 2.5): removes outlier D values near two-phase plateaus in scatter plots.
-- **Slopes & dE/dx**: both rows now share the E_eq x-axis, so you can directly read the slope magnitude and thermodynamic factor at any given equilibrium potential.
-- Multiple samples overlay automatically; uncheck any to hide.
 
 ---
 
