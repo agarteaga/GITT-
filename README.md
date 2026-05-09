@@ -98,7 +98,7 @@ All per-sample fields take effect on **Replot** only — no auto-fire.
 ### 🔵 Raw Data
 | Tab | Content |
 |-----|---------|
-| GITT curve | E(t) and I(t) per sample; W&H fit window in green; trimmed zone in red; excluded (red) pulses highlighted |
+| GITT curve | E(t) and I(t) per sample; W&H fit window in green.
 
 ### 🟣 Analysis
 | Tab | Content |
@@ -108,32 +108,9 @@ All per-sample fields take effect on **Replot** only — no auto-fire.
 | Overpotential & Rtot | η (mV, left) and R_tot·m (Ω·g, right) vs SOD/SOC and V_eq. Gap-checked: excluded pulses do not create fake η spikes |
 | Relaxation curves | E(t) − E_eq (mV); all pulses overlaid; turbo colour = V_eq |
 | Relaxation ΔE | Total voltage recovery (E_eq − E_relax,start) vs SOD/SOC |
-| **Relax kinetics** | dV/d(log t) overlay; all pulses per sample; discharge top / charge bottom; turbo colour = V_eq |
-| **Relax kinetics / pulse** | dV/d(log t) for selected Pulse #; discharge top / charge bottom; τ annotated; orange bg = 2+ processes |
-| **Relax kinetics map** | Operando-XRD-style 2D heatmap — see below |
-
-All overlay tabs: 2 rows (discharge / charge) × N-sample columns.
-
-#### Relax kinetics map — detail
-
-x = log₁₀(τ / s), y = V_eq (V), colour = normalised process fraction.
-
-Each row (one relaxation block) is divided by its own total area under the
-dV/d(log t) curve before plotting:
-
-$$Z_\text{plot}(\tau, V_\text{eq}) = \frac{|dV/d\log t|(\tau, V_\text{eq})}{\int |dV/d\log t|\, d\log\tau}$$
-
-This row-area normalisation puts all blocks on the same relative scale regardless
-of absolute overpotential amplitude — a block at 0.1 V and one at 1.0 V are
-directly comparable in the map.
-
-**Colormap:** blue → cyan → green → yellow → red (operando XRD style).
-Colour scale clipped at the 97th percentile to prevent outlier saturation.
-
-**Reading the map:**
-- Vertical bright band at constant log τ = process with fixed time constant (e.g. desolvation)
-- Diagonal/curved band = τ shifts with electrode state (e.g. diffusion-limited process that slows on intercalation)
-- Comparing discharge vs charge panels at the same V_eq reveals kinetic hysteresis
+| Relax kinetics| dV/d(log t) overlay; all pulses per sample; discharge top / charge bottom;
+| Relax kinetics / pulse | dV/d(log t) for selected Pulse #; discharge top / charge bottom;
+| Relax kinetics map | 2D heatmap
 
 ### 🟩 Weppner & Huggins (Conv.)
 | Tab | Content |
@@ -155,55 +132,6 @@ Colour scale clipped at the 97th percentile to prevent outlier saturation.
 Scrollable built-in reference: rendered LaTeX equations, method descriptions,
 symbol table, full parameter guide, relax kinetics map theory, validity conditions,
 pulse exclusion guide, and D behaviour at the plateau.
-
----
-
-## Physics
-
-### D_conv — Weppner & Huggins (1977)
-Fit ΔE vs √t during the pulse in [Fit start, Fit end]:
-
-$$\tilde{D}_\mathrm{conv} \cdot (S/v_m)^2 = \frac{4I^2}{\pi F^2 \delta_e^2} \left(\frac{dV_\mathrm{eq}/dx}{s_{\sqrt{t}}}\right)^2$$
-
-### D_kc — Kang & Chueh (2021)
-Fit E − V_eq vs ξ = √(t_relax + τ) − √t_relax during relaxation:
-
-$$\tilde{D}_\mathrm{kc} \cdot (S/v_m)^2 = \frac{4I^2}{\pi F^2 \delta_e^2} \left(\frac{dV_\mathrm{eq}/dx}{s_\xi}\right)^2$$
-
-Both report D̃·(S/v_m)² in mol² s⁻¹. Multiply by (v_m/S)² for absolute D̃ in cm² s⁻¹.
-**D_kc is preferred** — zero-current relaxation has no IR contamination.
-
-### dV/d(log t) relaxation fingerprinting
-$$\frac{dV}{d\log_{10} t} = t \cdot \frac{dV}{dt}$$
-
-Each electrochemical process appears as a distinct **peak**. Peak position = τ.
-Cross-validate with EIS: peak at log₁₀(τ) ↔ EIS arc at f = 1/(2πτ).
-
----
-
-## Pulse exclusion
-
-Enter 1-based pulse numbers in the **Excl disc#** / **chg#** fields per sample.
-The excluded block (pulse + relaxation) is:
-- Removed from all analysis (D, slopes, fits, dV/d(log t), map)
-- Drawn in **red** on the GITT Curve tab for visual confirmation
-- Skipped in overpotential/R_tot calculation to prevent fake spikes
-
-Click **Replot** after editing exclusion fields. Multiple values: `5,12,39`.
-
-**Finding the pulse number:** step through the Pulse # spinbox on "Relax kinetics / pulse"
-or "sqrt(t) fits" until you find the block with anomalous V_eq or stepped relaxation.
-
-**Coarser alternative:** use the Trim time (h) from/to fields to exclude all blocks
-overlapping a time window. Both mechanisms can be combined.
-
----
-
-## D values at the OCV plateau — expected behaviour
-
-In a two-phase region, dV_eq/dx → 0 and D is undefined. Both D_conv and D_kc scatter
-wildly — this is physically correct. Use **V_lo / V_hi** to exclude the plateau voltage
-range and analyse the single-phase regions on either side separately.
 
 ---
 
