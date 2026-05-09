@@ -67,8 +67,7 @@ One row per sample. Controls per sample:
 - **Excl disc#** — comma-separated 1-based discharge pulse numbers to exclude (e.g. `39` or `5,12`)
 - **chg#** — same for charge direction
 
-All per-sample fields take effect on **Replot** only — no auto-fire.
-
+All per-sample fields take effect on **Replot** only.
 ### Parameter bar
 
 > **All parameters take effect only when you click Replot.**
