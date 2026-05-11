@@ -29,7 +29,7 @@ pip install numpy scipy matplotlib
 
 ### Recommended — EC-Lab single-file ASCII (`.txt`)
 One `.txt` per sample from EC-Lab. Contains time, voltage, current, capacity,
-and header metadata (mass, Mw, area…). Multiple files in a folder are
+and header metadata (mass, Mw, area…), you should include headings, if not it won't work. Multiple files in a folder are
 concatenated alphabetically.
 
 ```
